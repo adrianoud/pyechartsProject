@@ -6,7 +6,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Bar
 
 
-app = Flask(__name__, static_folder="templates")
+app = Flask(__name__)
 
 
 def bar_base() -> Bar:
@@ -30,6 +30,11 @@ def get_bar_chart():
     c = bar_base()
     print(c.dump_options_with_quotes())
     return c.dump_options_with_quotes()
+
+
+@app.route("/JqueryPost", methods=['GET', 'POST'])
+def hello():
+    return "hello"
 
 
 if __name__ == "__main__":
